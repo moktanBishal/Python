@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundraising Campaign</title>
+
+    <style>
+        body {
+            background: #020111;  /* Dark background color */
+            color: #ffffff;      /* Text color */
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        h1 {
+            color: #6ab1d7;  /* Heading color */
+        }
+
+        p {
+            color: #c9d1d9;  /* Paragraph color */
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            color: #58a6ff;  /* Label color */
+        }
+
+        input {
+            background-color: #0e101c;  /* Input field background color */
+            color: #ffffff;             /* Input text color */
+            border: 1px solid #58a6ff;  /* Input border color */
+            padding: 8px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #58a6ff;  /* Button background color */
+            color: #ffffff;             /* Button text color */
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #6ab1d7;  /* Button background color on hover */
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        p.message {
+            color: #ecb742;  /* Message color */
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to our Fundraising Campaign!</h1>
+    <p>Please consider making a donation.</p>
+    
+
+    <form method="post">
+        <label for="donation">Enter your donation amount: $</label>
+        <input type="text" id="donation" name="donation" value="{% if reset_button_clicked %}0{% endif %}">
+
+        <div class="button-container">
+            <button type="submit">Donate</button>
+            <!-- Add a reset button with a name attribute -->
+            <button type="submit" name="reset_button">Reset Form</button>
+        </div>
+    </form>
+
+    {% if thank_you_message %}
+        <p class="message">{{ thank_you_message }}</p>
+    {% endif %}
+
+    <p class="message">{{ progress_message }}</p>
+    <p class="message">{{ fund_collected }}</p>
+</body>
+</html>
